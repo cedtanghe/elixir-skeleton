@@ -1,0 +1,7 @@
+<?php
+
+require_once __DIR__ . '/app.php';
+
+// Launch console
+set_time_limit(0);
+$application->getContainer()->get('console')->run();

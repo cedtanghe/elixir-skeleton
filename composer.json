@@ -1,0 +1,15 @@
+{
+    "repositories": [{
+            "type": "vcs",
+            "url": "https://github.com/cedtanghe/elixir"
+            }],
+
+    "config": {
+        "vendor-dir": "application/vendor"
+    },
+
+    "require": {
+        "elixir": "dev-master",
+		"symfony/console": "2.5.*@dev"
+    }
+}
