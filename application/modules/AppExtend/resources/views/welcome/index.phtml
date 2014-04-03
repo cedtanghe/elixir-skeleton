@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+    <head>
+        <title>Elixir application ready !</title>
+        <style type="text/css">
+            body
+            {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            .container
+            {
+                width: 800px;
+                margin: 50px auto 25px auto;
+            }
+			
+            .container h1
+            {
+                color: #333;
+                text-align: center;
+            }
+            
+            .bloc
+            {
+                margin: 0 15px 25px 15px;
+                padding: 15px;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+            	
+            .bloc p
+            {
+                color: #333;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+            
+            .bloc div.help
+            {
+                padding: 15px;
+                margin: 15px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+                background-color: #d9edf7;
+                border-color: #bce8f1;
+                color: #31708f;
+                font-size: 12px;
+            }
+            
+            .bloc div.help p
+            {
+                border-color: #bce8f1;
+                color: #31708f;
+            }
+            
+            .bloc h3
+            {
+                color: #333;
+                margin-top: 0;
+            }
+            
+            .bloc pre.code
+            {
+                padding: 5px;
+            }
+            
+            .bloc *:last-child
+            {
+                margin-bottom: 0;
+            }
+            
+            .textCenter
+            {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Woah ! You're there !</h1>
+            
+            <div class="bloc textCenter">
+                <p>Have you tested the server configuration ?</p>
+                <a href="check_configuration.php">Test the configuration</a>
+            </div>
+            
+            <div class="bloc textCenter">
+                <h3>Well, then you can start coding !</h3>
+                
+                <div class="help">
+                    <p>
+                        Have you already made the application configuration ?<br/>
+                        (url, database configuration, session name, etc.)
+                    </p>
+                    <pre class="code">application/modules/AppExtend/resources/configs/</pre>
+                </div>
+                
+                <?php if(Elixir\MVC\Application::$registry->get('application')->hasModule('Console')): ?>
+                <div class="help">
+                    <p>You installed the "console" module, it is a good idea !</p>
+                    <p>The module "AppExtend" can serve as a basis but you can just as well create another module startup.</p>
+                    <p>I suggest you create the module startup via the command line :</p>
+                    <pre class="code">$ php application/console create-module {MODULE-NAME}</pre>
+                </div>
+                <?php endif; ?>
+                
+                <div class="help">
+                    <p>
+                        No roads is set by default when creating a new module and the "AppExtend" module contains only a single route.<br/>
+                        You are free to add more in :
+                    </p>
+                    <pre class="code">application/modules/AppExtend/resources/routes/</pre>
+                </div>
+            </div>
+        <div>
+    </body>
+</html>
