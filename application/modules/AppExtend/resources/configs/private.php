@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'development' => array('url' => '***'),
+    'development' => array('url' => ''),
     'preproduction:development' => array(),
     'production:development' => array()
 );

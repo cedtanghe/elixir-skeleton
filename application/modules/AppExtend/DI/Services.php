@@ -32,9 +32,16 @@ class Services extends ParentServices
         
         if(null === $session)
         {
-            $config = $pContainer->get('config');
             $session = new Session();
-            $session->setName($config->get(array('session', 'name')));
+            
+            $config = $pContainer->get('config');
+            $sessionName = $config->get(array('session', 'name'));
+            
+            if(!empty($sessionName))
+            {
+                $session->setName($sessionName);
+            }
+            
             $session->start();
         }
         
