@@ -52,7 +52,7 @@ class Services extends ParentServices
         
         /************ CONNECTIONS ************/
         
-        $pContainer->singleton('DB.default', function($pContainer)
+        $pContainer->singleton('db.default', function($pContainer)
         {
             $config = $pContainer->get('config');
             return DBFactory::create($config['db']);
