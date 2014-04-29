@@ -2,17 +2,17 @@
 
 namespace AppExtend\Listener;
 
-use Elixir\Dispatcher\Dispatcher;
+use Elixir\Dispatcher\DispatcherInterface;
 use Elixir\Module\Application\Listener\Listeners as ParentListeners;
 
 class Listeners extends ParentListeners
 {
-    public function subscribe(Dispatcher $pDispatcher)
+    public function subscribe(DispatcherInterface $pDispatcher)
     {   
         parent::subscribe($pDispatcher);
     }
     
-    public function unsubscribe(Dispatcher $pDispatcher)
+    public function unsubscribe(DispatcherInterface $pDispatcher)
     {
         // Not yet
     }
