@@ -9,7 +9,7 @@
     },
 
     "require": {
-        "elixir": "dev-master",
-		"symfony/console": "2.5.*@dev"
+        "cedtanghe/elixir": "dev-master",
+        "symfony/console": "2.5.*@dev"
     }
 }
