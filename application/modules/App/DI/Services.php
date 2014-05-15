@@ -17,11 +17,11 @@ class Services extends ParentServices
         
         $pContainer->extend('config', function($pConfig, $pContainer)
         {
-            $pConfig->load(array(
+            $pConfig->load([
                 __DIR__ . '/../resources/configs/config.php',
                 __DIR__ . '/../resources/configs/private.php'
-            ),
-            array('recursive' => true));
+            ],
+            ['recursive' => true]);
             
             return $pConfig;
         });
@@ -35,7 +35,7 @@ class Services extends ParentServices
             $session = new Session();
             
             $config = $pContainer->get('config');
-            $sessionName = $config->get(array('session', 'name'));
+            $sessionName = $config->get(['session', 'name']);
             
             if(!empty($sessionName))
             {

@@ -8,6 +8,6 @@ class WelcomeController extends ControllerAbstract
 {
     public function indexAction()
     {
-        return $this->helper('helper.render')->renderResponse(null, array());
+        return $this->helper('helper.render')->renderResponse(null, []);
     }
 }

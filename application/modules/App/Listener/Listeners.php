@@ -11,9 +11,4 @@ class Listeners extends ParentListeners
     {   
         parent::subscribe($pDispatcher);
     }
-    
-    public function unsubscribe(DispatcherInterface $pDispatcher)
-    {
-        // Not yet
-    }
 }

@@ -1,16 +1,16 @@
 <?php
 
-return array(
-    'development' => array(
-        'session' => array('name' => ''),
-        'db' => array(
+return [
+    'development' => [
+        'session' => ['name' => ''],
+        'db' => [
             'type' => 'pdo_mysql',
             'host' => '',
             'username' => '',
             'password' => '',
             'dbname' => ''
-        )
-    ),
-    'preproduction:development' => array(),
-    'production:development' => array()
-);
+        ]
+    ],
+    'preproduction:development' => [],
+    'production:development' => []
+];
