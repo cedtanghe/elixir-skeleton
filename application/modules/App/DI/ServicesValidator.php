@@ -3,7 +3,7 @@
 namespace App\DI;
 
 use Elixir\DI\ContainerInterface;
-use Elixir\Module\Application\DI\ServicesValidator as ParentServicesValidator;
+use Elixir\Module\AppBase\DI\ServicesValidator as ParentServicesValidator;
 
 class ServicesValidator extends ParentServicesValidator
 {

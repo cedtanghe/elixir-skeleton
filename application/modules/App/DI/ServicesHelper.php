@@ -3,7 +3,7 @@
 namespace App\DI;
 
 use Elixir\DI\ContainerInterface;
-use Elixir\Module\Application\DI\ServicesHelper as ParentServicesHelper;
+use Elixir\Module\AppBase\DI\ServicesHelper as ParentServicesHelper;
 
 class ServicesHelper extends ParentServicesHelper
 {

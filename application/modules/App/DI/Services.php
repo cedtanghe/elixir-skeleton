@@ -5,7 +5,7 @@ namespace App\DI;
 use Elixir\DB\DBFactory;
 use Elixir\DI\ContainerInterface;
 use Elixir\HTTP\Session\Session;
-use Elixir\Module\Application\DI\Services as ParentServices;
+use Elixir\Module\AppBase\DI\Services as ParentServices;
 
 class Services extends ParentServices
 {

@@ -3,7 +3,7 @@
 namespace App\DI;
 
 use Elixir\DI\ContainerInterface;
-use Elixir\Module\Application\DI\ServicesFilter as ParentServicesFilter;
+use Elixir\Module\AppBase\DI\ServicesFilter as ParentServicesFilter;
 
 class ServicesFilter extends ParentServicesFilter
 {

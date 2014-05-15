@@ -3,7 +3,7 @@
 namespace App\Listener;
 
 use Elixir\Dispatcher\DispatcherInterface;
-use Elixir\Module\Application\Listener\Listeners as ParentListeners;
+use Elixir\Module\AppBase\Listener\Listeners as ParentListeners;
 
 class Listeners extends ParentListeners
 {
