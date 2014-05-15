@@ -1,6 +1,6 @@
 <?php
 
-namespace AppExtend\DI;
+namespace App\DI;
 
 use Elixir\DI\ContainerInterface;
 use Elixir\Module\Application\DI\ServicesValidator as ParentServicesValidator;

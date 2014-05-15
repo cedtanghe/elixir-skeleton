@@ -1,6 +1,6 @@
 <?php
 
-namespace AppExtend\Listener;
+namespace App\Listener;
 
 use Elixir\Dispatcher\DispatcherInterface;
 use Elixir\Module\Application\Listener\Listeners as ParentListeners;

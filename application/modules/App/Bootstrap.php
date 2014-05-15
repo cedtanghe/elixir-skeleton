@@ -1,6 +1,6 @@
 <?php
 
-namespace AppExtend;
+namespace App;
 
 use Elixir\MVC\Module\ModuleAbstract;
 
@@ -8,7 +8,7 @@ class Bootstrap extends ModuleAbstract
 {
     public function getParent() 
     {
-        return 'Application';
+        return 'AppBase';
     }
     
     public function boot() 

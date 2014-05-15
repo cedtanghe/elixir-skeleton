@@ -1,11 +1,11 @@
 <?php
 
-namespace AppExtend\DI;
+namespace App\DI;
 
 use Elixir\DI\ContainerInterface;
-use Elixir\Module\Application\DI\ServicesHelper as ParentServicesHelper;
+use Elixir\Module\Application\DI\ServicesFilter as ParentServicesFilter;
 
-class ServicesHelper extends ParentServicesHelper
+class ServicesFilter extends ParentServicesFilter
 {
     public function load(ContainerInterface $pContainer) 
     {

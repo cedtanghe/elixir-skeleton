@@ -1,6 +1,6 @@
 <?php
 
-namespace AppExtend\Controller;
+namespace App\Controller;
 
 use Elixir\MVC\Controller\ControllerAbstract;
 

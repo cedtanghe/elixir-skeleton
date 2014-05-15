@@ -1,6 +1,6 @@
 <?php
 
-namespace AppExtend\DI;
+namespace App\DI;
 
 use Elixir\DB\DBFactory;
 use Elixir\DI\ContainerInterface;

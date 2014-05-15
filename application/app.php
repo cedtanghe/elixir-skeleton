@@ -9,7 +9,7 @@ $application = new \Elixir\MVC\Application($container);
 $application->setControllerResolver(new \Elixir\MVC\Controller\ControllerResolver());
 
 // Register modules
-$application->addModule(new \Elixir\Module\Application\Bootstrap());
+$application->addModule(new \Elixir\Module\AppBase\Bootstrap());
 
 if(APPLICATION_ENV == 'development')
 {
@@ -17,7 +17,7 @@ if(APPLICATION_ENV == 'development')
 }
 
 $application->addModule(new \Elixir\Module\Facade\Bootstrap());
-$application->addModule(new \AppExtend\Bootstrap());
+$application->addModule(new \App\Bootstrap());
 
 // Boot all modules
 $application->boot();

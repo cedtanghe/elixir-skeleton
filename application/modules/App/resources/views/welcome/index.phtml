@@ -92,13 +92,13 @@
                         Have you already made the application configuration ?<br/>
                         (url, database configuration, session name, etc.)
                     </p>
-                    <pre class="code">application/modules/AppExtend/resources/configs/</pre>
+                    <pre class="code">application/modules/App/resources/configs/</pre>
                 </div>
                 
                 <?php if(Elixir\MVC\Application::$registry->get('application')->hasModule('Console')): ?>
                 <div class="help">
                     <p>You installed the "console" module, it is a good idea !</p>
-                    <p>The module "AppExtend" can serve as a basis but you can just as well create another module startup.</p>
+                    <p>The module "App" can serve as a basis but you can just as well create another module startup.</p>
                     <p>I suggest you create the module startup via the command line :</p>
                     <pre class="code">$ php application/console module:create {MODULE-NAME}</pre>
                 </div>
