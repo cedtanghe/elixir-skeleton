@@ -357,14 +357,14 @@ $collection->execute();
         <div class="container">
             <h1>Testing PHP configuration.</h1>
 			
-			<div class="dashboard">
-				<h2>Result assertions : <?php echo count($collection->getSuccessRequirements()) . ' / ' . count($collection->gets(false)); ?>.</h2>
-			</div>
+            <div class="dashboard">
+                <h2>Result assertions : <?php echo count($collection->getSuccessRequirements()) . ' / ' . count($collection->gets(false)); ?>.</h2>
+            </div>
 			
             <?php foreach($collection as $requirement): ?>
 				
                 <div class="bloc <?php echo !$requirement->isOptional() ? 'requirement' : 'recommendation'; ?>">
-					<span class="type"><?php echo !$requirement->isOptional() ? 'required' : 'optional'; ?></span>
+                    <span class="type"><?php echo !$requirement->isOptional() ? 'required' : 'optional'; ?></span>
                     <h3 class="title"><?php echo $requirement->getAssertMessage(); ?></h3>
                     
                     <p class="<?php echo $requirement->isSuccess() ? 'success' : 'fail'; ?>">

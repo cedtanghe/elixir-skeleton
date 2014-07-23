@@ -3,6 +3,8 @@
 define('APPLICATION_PATH', realpath(__DIR__));
 define('PUBLIC_PATH', realpath(__DIR__ . '/../'));
 define('APPLICATION_ENV', 'development');
+define('MAINTENANCE_MODE', false);
+define('MAINTENANCE_IP_AUTHORIZATION', '');
 
 set_error_handler(function($pSeverity, $pMessage, $pFilename, $pLine) 
 { 

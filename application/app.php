@@ -2,6 +2,13 @@
 
 require_once __DIR__ . '/init.php';
 
+// Check maintenance mode
+if(defined('MAINTENANCE_MODE') && true === MAINTENANCE_MODE)
+{
+    include 'maintenance.php';
+}
+
+// Create application
 $container = new \Elixir\DI\Container();
 $container->set('autoloader', $loader);
 
