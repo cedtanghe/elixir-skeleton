@@ -30,7 +30,7 @@ if($isAuthorized)
     return;
 }
 
-/************ CHECK USER ************/
+/************ APPLY MAINTENANCE MODE ************/
 
 $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
 $status = $protocol == 'HTTP/1.1' ? '307 Temporary Redirect' : '302 Found';
