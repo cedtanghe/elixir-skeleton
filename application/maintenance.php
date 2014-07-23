@@ -103,7 +103,7 @@ ob_start();
             <div class="bloc">
                 <h3 class="title">The server is temporarily down for maintenance</h3>
                 <p class="infos">
-                    The service needed to be locked to ensure data integrity during the update procedure
+                    The service needed to be locked to ensure data integrity during the update procedure.
                     <br />
                     We will resume normal operations as soon as possible.
                 </p>
