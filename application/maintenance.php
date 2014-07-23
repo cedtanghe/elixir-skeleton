@@ -77,12 +77,22 @@ ob_start();
             {
                 color: #333;
                 text-align:center;
+                margin-bottom: 50px;
             }
             
             .bloc p
             {
                 padding: 15px;
+                border: 1px solid transparent;
+                border-radius: 4px;
                 text-align:center;
+            }
+            
+            .bloc p.infos
+            {
+                background-color: #d9edf7;
+                border-color: #bce8f1;
+                color: #31708f;
             }
         </style>
     </head>
@@ -92,7 +102,7 @@ ob_start();
 
             <div class="bloc">
                 <h3 class="title">The server is temporarily down for maintenance</h3>
-                <p>
+                <p class="infos">
                     The service needed to be locked to ensure data integrity during the update procedure
                     <br />
                     We will resume normal operations as soon as possible.
