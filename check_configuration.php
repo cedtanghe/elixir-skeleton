@@ -271,7 +271,7 @@ $collection->execute();
             
             .container
             {
-                width: 800px;
+                max-width: 800px;
                 margin: 50px auto 25px auto;
             }
 			

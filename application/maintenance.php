@@ -54,7 +54,7 @@ ob_start();
             
             .container
             {
-                width: 800px;
+                max-width: 800px;
                 margin: 50px auto 25px auto;
             }
 			
@@ -104,6 +104,7 @@ ob_start();
                 <h3 class="title">The server is temporarily down for maintenance</h3>
                 <p class="infos">
                     The service needed to be locked to ensure data integrity during the update procedure.
+                    <br />
                     <br />
                     We will resume normal operations as soon as possible.
                 </p>
