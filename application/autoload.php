@@ -8,3 +8,4 @@ $loader = new \Elixir\ClassLoader\Loader();
 $loader->register();
 
 $loader->addNamespace('App', __DIR__ . '/modules/App/');
+
