@@ -15,11 +15,10 @@ $PHPVersion = phpversion();
 
 $collection->add(
     PHPChecker_Factory::createRequirement(
-        version_compare($PHPVersion, '5.3.3', '>='),
+        version_compare($PHPVersion, '5.4', '>='),
         'PHP version.',
         sprintf('Your PHP version is : %s.', $PHPVersion),
-        sprintf('Your PHP version (%s) is less than the required version.', $PHPVersion),
-        'PHP version 5.4 and higher is recommended.'
+        sprintf('Your PHP version (%s) is less than the required version.', $PHPVersion)
     )
 );
 

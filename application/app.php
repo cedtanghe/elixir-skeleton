@@ -20,10 +20,12 @@ $application->addModule(new \Elixir\Module\AppBase\Bootstrap());
 
 if(APPLICATION_ENV == 'development')
 {
-   $application->addModule(new \Elixir\Module\Console\Bootstrap()); 
+    if(class_exists('\Elixir\Module\Console\Bootstrap'))
+    {
+        $application->addModule(new \Elixir\Module\Console\Bootstrap()); 
+    }
 }
 
-$application->addModule(new \Elixir\Module\Facade\Bootstrap());
 $application->addModule(new \App\Bootstrap());
 
 // Boot all modules
