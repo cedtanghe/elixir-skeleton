@@ -3,10 +3,8 @@
 namespace App\DI;
 
 use Elixir\DI\ContainerInterface;
-use Elixir\DI\ContainerInterface;
 use Elixir\Helper\I18N;
 use Elixir\Helper\Security;
-use Elixir\Module\AppBase\DI\ServicesHelper as ParentServicesHelper;
 use Elixir\Module\AppBase\DI\ServicesHelper as ParentServicesHelper;
 use Elixir\MVC\Controller\Helper\Container as ControllerHelper;
 use Elixir\View\Helper\Container as ViewHelper;
