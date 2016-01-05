@@ -148,7 +148,7 @@ class Services extends ParentServices
                 
                 $request = $container->get('request');
                 $config = $container->get('config');
-                $default = $config->get(['i18n', 'default']);
+                $default = $config->get(['i18n', 'frontend', 'default']);
                 
                 $pathInfo = trim($request->getPathInfo(), '/');
                 $locale = null;
@@ -163,8 +163,8 @@ class Services extends ParentServices
                 }
                 
                 $found = false;
-
-                if (in_array($locale, $config->get(['i18n', 'languages'])))
+                
+                if (in_array($locale, $config->get(['i18n', 'frontend', 'languages'])))
                 {
                     if (strlen($pathInfo) == 2 || substr($pathInfo, 2, 1) === '/')
                     {
@@ -185,7 +185,15 @@ class Services extends ParentServices
                 
                 if ($locale !== $default)
                 {
-                    $I18N->load(__DIR__ . '/../resources/languages/' . $locale . '.mo');
+                    $path = __DIR__ . '/../resources/languages';
+                    $file = $path . '/frontend-' . $locale . '.mo';
+                    
+                    if (!file_exists($file))
+                    {
+                        $file = $path . '/' . $locale . '.mo';
+                    }
+                    
+                    $I18N->load($file);
                 }
                 
                 return $I18N;
