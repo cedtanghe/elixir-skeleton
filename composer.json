@@ -1,4 +1,8 @@
 {
+    "name": "elixir/elixir-skeleton",
+    "description": "Skeleton for Elixir application",
+    "license":"proprietary",
+    "homepage": "https://github.com/cedtanghe/elixir-mail",
     "repositories": [
         {
         "type": "vcs",
