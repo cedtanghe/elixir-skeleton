@@ -6,21 +6,21 @@ define('APPLICATION_ENV', 'development');
 define('MAINTENANCE_MODE', false);
 define('MAINTENANCE_IP_AUTHORIZATION', '');
 
-set_error_handler(function($pSeverity, $pMessage, $pFilename, $pLine) 
-{ 
-    throw new \ErrorException($pMessage, 0, $pSeverity, $pFilename, $pLine); 
+set_error_handler(function($severity, $message, $filename, $line) 
+{
+    throw new \ErrorException($message, 0, $severity, $filename, $line);
 });
 
-switch(APPLICATION_ENV)
+switch (APPLICATION_ENV) 
 {
     case 'development':
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
-    break;
+        break;
     default:
         ini_set('display_errors', '0');
         error_reporting(0);
-    break;
+        break;
 }
 
 require_once __DIR__ . '/autoload.php';

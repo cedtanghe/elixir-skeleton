@@ -7,8 +7,8 @@ use Elixir\Module\AppBase\DI\ServicesValidator as ParentServicesValidator;
 
 class ServicesValidator extends ParentServicesValidator
 {
-    public function load(ContainerInterface $pContainer) 
+    public function load(ContainerInterface $container) 
     {
-        parent::load($pContainer);
+        parent::load($container);
     }
 }

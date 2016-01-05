@@ -9,19 +9,22 @@ use Elixir\Security\Firewall\Utils;
 
 class Listeners extends ParentListeners
 {
-    public function subscribe(DispatcherInterface $pDispatcher)
+    public function subscribe(DispatcherInterface $dispatcher)
     {   
-        parent::subscribe($pDispatcher);
+        parent::subscribe($dispatcher);
         
         /************ SECURITY ************/
         
-        $pDispatcher->addListener(ApplicationEvent::FILTER_REQUEST, function(ApplicationEvent $e) use($container)
+        if ($this->_container->get(['enabled', 'security'], false))
         {
-            $resource = Utils::createResource($e->getRequest());
-            $e->getRequest()->getAttributes()->set('CURRENT_PAGE', $resource);
-            
-            $firewall = $container->get('security');
-            $firewall->analyze($resource);
-        }, 850);
+            $dispatcher->addListener(ApplicationEvent::FILTER_REQUEST, function(ApplicationEvent $e)
+            {
+                $resource = Utils::createResource($e->getRequest());
+                $e->getRequest()->getAttributes()->set('CURRENT_PAGE', $resource);
+                
+                $firewall = $this->_container->get('security');
+                $firewall->analyze($resource);
+            }, 850);
+        }
     }
 }

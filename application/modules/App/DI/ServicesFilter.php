@@ -7,8 +7,8 @@ use Elixir\Module\AppBase\DI\ServicesFilter as ParentServicesFilter;
 
 class ServicesFilter extends ParentServicesFilter
 {
-    public function load(ContainerInterface $pContainer) 
+    public function load(ContainerInterface $container) 
     {
-        parent::load($pContainer);
+        parent::load($container);
     }
 }

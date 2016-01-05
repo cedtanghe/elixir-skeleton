@@ -16,7 +16,7 @@ return [
     '_globals' => [
         'identity_not_found_uri' => function()
         {  
-            return Application::$registry->get('helper.url')->generate('HOME');
+            return Application::$registry->get('helper.url')->generate('LOGIN');
         }
     ]
 ];

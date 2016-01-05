@@ -4,15 +4,15 @@
 
 $isAuthorized = false;
     
-if(defined('MAINTENANCE_IP_AUTHORIZATION'))
+if (defined('MAINTENANCE_IP_AUTHORIZATION'))
 {
     $authorizations = explode(',', MAINTENANCE_IP_AUTHORIZATION);
 
-    if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+    if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
     {
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
     }
-    else if(isset($_SERVER['HTTP_CLIENT_IP']))
+    else if (isset($_SERVER['HTTP_CLIENT_IP']))
     {
         $ip = $_SERVER['HTTP_CLIENT_IP'];
     }
@@ -24,7 +24,7 @@ if(defined('MAINTENANCE_IP_AUTHORIZATION'))
     $isAuthorized = in_array($ip, $authorizations);
 }
 
-if($isAuthorized)
+if ($isAuthorized)
 {
     // User is authorized
     return;

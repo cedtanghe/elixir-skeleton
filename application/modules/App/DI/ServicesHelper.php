@@ -4,6 +4,7 @@ namespace App\DI;
 
 use Elixir\DI\ContainerInterface;
 use Elixir\DI\ContainerInterface;
+use Elixir\Helper\I18N;
 use Elixir\Helper\Security;
 use Elixir\Module\AppBase\DI\ServicesHelper as ParentServicesHelper;
 use Elixir\Module\AppBase\DI\ServicesHelper as ParentServicesHelper;
@@ -12,24 +13,43 @@ use Elixir\View\Helper\Container as ViewHelper;
 
 class ServicesHelper extends ParentServicesHelper
 {
-    public function load(ContainerInterface $pContainer) 
+    public function load(ContainerInterface $container) 
     {
-        parent::load($pContainer);
+        parent::load($container);
+        
+        $config = $container->get('config');
+        
+        /************ INTERNATIONALISATION ************/
+        
+        if ($config->get(['enabled', 'i18n'], false))
+        {
+            $container->singleton('helper.i18n', function($container)
+            {
+                return new I18N($container->get('i18n'));
+            }, 
+            [
+                ViewHelper::HELPER_TAG_KEY, 
+                ControllerHelper::HELPER_TAG_KEY
+            ]);
+        }
         
         /************ SECURITY ************/
         
-        $pContainer->singleton('helper.security', function($pContainer)
+        if ($config->get(['enabled', 'security'], false))
         {
-            $security = new Security();
-            $security->setRequest($pContainer->get('request'));
-            $security->setManager($pContainer->get('identities'));
-            $security->setFirewall($pContainer->get('security'));
+            $container->singleton('helper.security', function($container)
+            {
+                $security = new Security();
+                $security->setRequest($container->get('request'));
+                $security->setManager($container->get('identities'));
+                $security->setFirewall($container->get('security'));
 
-            return $security;
-        },
-        [
-            ViewHelper::HELPER_TAG_KEY, 
-            ControllerHelper::HELPER_TAG_KEY
-        ]);
+                return $security;
+            },
+            [
+                ViewHelper::HELPER_TAG_KEY, 
+                ControllerHelper::HELPER_TAG_KEY
+            ]);
+        }
     }
 }
