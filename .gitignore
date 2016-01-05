@@ -2,4 +2,4 @@ medias/vendor/*
 application/vendor/*
 node_modules/*
 composer.lock
-composer.phar
+/composer.phar
