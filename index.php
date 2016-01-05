@@ -2,7 +2,9 @@
 
 require_once __DIR__ . '/application/app.php';
 
-$request = \Elixir\HTTP\RequestFactory::create();
+use Elixir\HTTP\RequestFactory;
+
+$request = RequestFactory::create();
 
 // Launch application
 $response = $application->handle($request);

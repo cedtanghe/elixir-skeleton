@@ -360,7 +360,7 @@ $collection->execute();
                 <h2>Result assertions : <?php echo count($collection->getSuccessRequirements()) . ' / ' . count($collection->gets(false)); ?>.</h2>
             </div>
 			
-            <?php foreach($collection as $requirement): ?>
+            <?php foreach ($collection as $requirement): ?>
 				
                 <div class="bloc <?php echo !$requirement->isOptional() ? 'requirement' : 'recommendation'; ?>">
                     <span class="type"><?php echo !$requirement->isOptional() ? 'required' : 'optional'; ?></span>
@@ -370,7 +370,7 @@ $collection->execute();
                         <?php echo $requirement->isSuccess() ? $requirement->getSuccessMessage() : $requirement->getFailMessage(); ?>
                     </p>
                     
-                    <?php if(null !== $requirement->getHelpMessage()): ?>
+                    <?php if (null !== $requirement->getHelpMessage()): ?>
                     <p class="help"><?php echo $requirement->getHelpMessage(); ?></p>
                     <?php endif; ?>
                 </div>
