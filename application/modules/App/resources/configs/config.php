@@ -2,13 +2,13 @@
 
 return [
     'development' => [
-        'session' => ['name' => ''],
+        'session' => ['name' => '***'],
         'db' => [
             'type' => 'pdo_mysql',
-            'host' => '',
-            'username' => '',
-            'password' => '',
-            'dbname' => ''
+            'host' => '***',
+            'username' => '***',
+            'password' => '***',
+            'dbname' => '***'
         ]
     ],
     'preproduction:development' => [],

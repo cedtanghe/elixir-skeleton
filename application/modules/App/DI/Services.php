@@ -6,6 +6,12 @@ use Elixir\DB\DBFactory;
 use Elixir\DI\ContainerInterface;
 use Elixir\HTTP\Session\Session;
 use Elixir\Module\AppBase\DI\Services as ParentServices;
+use Elixir\Security\Authentification\Manager;
+use Elixir\Security\Authentification\Storage\Session as SessionStorage;
+use Elixir\Security\Firewall\Behavior\AccessForbidden;
+use Elixir\Security\Firewall\Behavior\IdentityNotFound;
+use Elixir\Security\Firewall\FirewallEvent;
+use Elixir\Security\Firewall\RBAC\Firewall;
 
 class Services extends ParentServices
 {
@@ -64,6 +70,45 @@ class Services extends ParentServices
         {
             $pRouter->load(__DIR__ . '/../resources/routes/routes.php');
             return $pRouter;
+        });
+        
+        /************ IDENTITIES ************/
+        
+        $pContainer->singleton('identities', function()
+        {
+            return new Manager(new SessionStorage(Session::instance()));
+        });
+        
+        /************ SECURITY ************/
+        
+        $pContainer->singleton('security', function($pContainer)
+        {
+            $firewall = new Firewall($pContainer->get('identities'));
+            $firewall->load(__DIR__ . '/../resources/security/security.php');
+            
+            $firewall->addListener(FirewallEvent::IDENTITY_NOT_FOUND, function(FirewallEvent $e) use ($pContainer)
+            {
+                $options = $e->getAccessControl()->getOptions();
+
+                if(isset($options['identity_not_found_uri']))
+                {
+                    $behavior = new IdentityNotFound($options['identity_not_found_uri']());
+                }
+                else
+                {
+                    $behavior = new AccessForbidden();
+                }
+
+                $behavior($e->getTarget());
+            });
+
+            $firewall->addListener(FirewallEvent::ACCESS_FORBIDDEN, function(FirewallEvent $e) use($pContainer)
+            {
+                $behavior = new AccessForbidden();
+                $behavior($e->getTarget());
+            });
+
+            return $firewall;
         });
     }
 }
