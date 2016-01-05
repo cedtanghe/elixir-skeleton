@@ -19,6 +19,9 @@ return [
             'username' => '***',
             'password' => '***',
             'dbname' => '***'
+        ],
+        'security' => [
+            'type' => 'rbac'
         ]
     ],
     'preproduction:development' => [],

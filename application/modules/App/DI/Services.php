@@ -13,7 +13,8 @@ use Elixir\Security\Authentification\Storage\Session as SessionStorage;
 use Elixir\Security\Firewall\Behavior\AccessForbidden;
 use Elixir\Security\Firewall\Behavior\IdentityNotFound;
 use Elixir\Security\Firewall\FirewallEvent;
-use Elixir\Security\Firewall\RBAC\Firewall;
+use Elixir\Security\Firewall\Identity\Firewall as IdentityFirewall;
+use Elixir\Security\Firewall\RBAC\Firewall as RBACFirewall;
 
 class Services extends ParentServices
 {
@@ -98,7 +99,17 @@ class Services extends ParentServices
         {
             $container->singleton('security', function($container)
             {
-                $firewall = new Firewall($container->get('identities'));
+                $config = $container->get('config');
+                
+                if ($config->get(['security', 'type']) === 'rbac')
+                {
+                    $firewall = new RBACFirewall($container->get('identities'));
+                }
+                else
+                {
+                    $firewall = new IdentityFirewall($container->get('identities'));
+                }
+                
                 $firewall->load(__DIR__ . '/../resources/security/security.php');
 
                 $firewall->addListener(FirewallEvent::IDENTITY_NOT_FOUND, function(FirewallEvent $e) use ($container)
