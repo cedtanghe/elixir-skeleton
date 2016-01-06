@@ -7,5 +7,4 @@ require_once __DIR__ . '/vendor/autoload.php';
 $loader = new \Elixir\ClassLoader\Loader();
 $loader->register();
 
-$loader->addNamespace('App', __DIR__ . '/modules/App/');
 
