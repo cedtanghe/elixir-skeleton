@@ -39,7 +39,7 @@ class Services extends ParentServices
         
         /************ SESSION ************/
         
-        if ($config->get(['enabled', 'session'], false))
+        if ($config->get(['enable', 'session'], false))
         {
             $session = Session::instance();
             
@@ -66,7 +66,7 @@ class Services extends ParentServices
         
         /************ CONNECTIONS ************/
         
-        if ($config->get(['enabled', 'db'], false))
+        if ($config->get(['enable', 'db'], false))
         {
             $container->singleton('db.default', function($container)
             {
@@ -85,7 +85,7 @@ class Services extends ParentServices
         
         /************ IDENTITIES ************/
         
-        if ($config->get(['enabled', 'security'], false))
+        if ($config->get(['enable', 'security'], false))
         {
             $container->singleton('identities', function()
             {
@@ -95,7 +95,7 @@ class Services extends ParentServices
         
         /************ SECURITY ************/
         
-        if ($config->get(['enabled', 'security'], false))
+        if ($config->get(['enable', 'security'], false))
         {
             $container->singleton('security', function($container)
             {
@@ -140,7 +140,7 @@ class Services extends ParentServices
         
         /************ INTERNATIONALISATION ************/
         
-        if ($config->get(['enabled', 'i18n'], false))
+        if ($config->get(['enable', 'i18n'], false))
         {
             $container->singleton('i18n', function($container)
             {

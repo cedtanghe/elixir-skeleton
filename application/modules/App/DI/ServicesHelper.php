@@ -19,7 +19,7 @@ class ServicesHelper extends ParentServicesHelper
         
         /************ INTERNATIONALISATION ************/
         
-        if ($config->get(['enabled', 'i18n'], false))
+        if ($config->get(['enable', 'i18n'], false))
         {
             $container->singleton('helper.i18n', function($container)
             {
@@ -33,7 +33,7 @@ class ServicesHelper extends ParentServicesHelper
         
         /************ SECURITY ************/
         
-        if ($config->get(['enabled', 'security'], false))
+        if ($config->get(['enable', 'security'], false))
         {
             $container->singleton('helper.security', function($container)
             {

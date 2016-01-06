@@ -17,7 +17,7 @@ class Listeners extends ParentListeners
         
         $config = $this->_container->get('config');
         
-        if ($config->get(['enabled', 'security'], false))
+        if ($config->get(['enable', 'security'], false))
         {
             $dispatcher->addListener(ApplicationEvent::FILTER_REQUEST, function(ApplicationEvent $e)
             {
