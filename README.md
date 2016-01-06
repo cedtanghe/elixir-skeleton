@@ -1,4 +1,4 @@
-elixir_skeleton
+elixir-skeleton
 ===============
 
 Skeleton for Elixir application
