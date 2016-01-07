@@ -11,7 +11,7 @@ use Elixir\Module\AppBase\DI\Services as ParentServices;
 use Elixir\Security\Authentification\Manager;
 use Elixir\Security\Authentification\Storage\Session as SessionStorage;
 use Elixir\Security\Firewall\Behavior\AccessForbidden;
-use Elixir\Security\Firewall\Behavior\IdentityNotFound;
+use Elixir\Security\Firewall\Behavior\Redirect;
 use Elixir\Security\Firewall\FirewallEvent;
 use Elixir\Security\Firewall\Identity\Firewall as IdentityFirewall;
 use Elixir\Security\Firewall\RBAC\Firewall as RBACFirewall;
@@ -118,7 +118,7 @@ class Services extends ParentServices
 
                     if (isset($options['identity_not_found_uri']))
                     {
-                        $behavior = new IdentityNotFound($options['identity_not_found_uri']());
+                        $behavior = new Redirect($options['identity_not_found_uri']());
                     }
                     else
                     {
@@ -130,7 +130,15 @@ class Services extends ParentServices
 
                 $firewall->addListener(FirewallEvent::ACCESS_FORBIDDEN, function(FirewallEvent $e) use($container)
                 {
-                    $behavior = new AccessForbidden();
+                    if (isset($options['access_forbidden_uri']))
+                    {
+                        $behavior = new Redirect($options['access_forbidden_uri']());
+                    }
+                    else
+                    {
+                        $behavior = new AccessForbidden();
+                    }
+                    
                     $behavior($e->getTarget());
                 });
 
