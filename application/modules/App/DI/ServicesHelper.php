@@ -7,6 +7,7 @@ use Elixir\Helper\I18N;
 use Elixir\Helper\Security;
 use Elixir\Module\AppBase\DI\ServicesHelper as ParentServicesHelper;
 use Elixir\MVC\Controller\Helper\Container as ControllerHelper;
+use Elixir\Security\CSRF;
 use Elixir\View\Helper\Container as ViewHelper;
 
 class ServicesHelper extends ParentServicesHelper
@@ -35,12 +36,25 @@ class ServicesHelper extends ParentServicesHelper
         
         if ($config->get(['enable', 'security'], false))
         {
+            $container->singleton('helper.csrf', function($container)
+            {
+                return new CSRF($container->get('request'));
+            },
+            [
+                ViewHelper::HELPER_TAG_KEY, 
+                ControllerHelper::HELPER_TAG_KEY
+            ]);
+            
             $container->singleton('helper.security', function($container)
             {
                 $security = new Security();
                 $security->setRequest($container->get('request'));
                 $security->setManager($container->get('identities'));
-                $security->setFirewall($container->get('security'));
+                
+                if ($container->has('firewall'))
+                {
+                    $security->setFirewall($container->get('firewall'));
+                }
 
                 return $security;
             },

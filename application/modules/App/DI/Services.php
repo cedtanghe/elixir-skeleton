@@ -95,13 +95,13 @@ class Services extends ParentServices
         
         /************ SECURITY ************/
         
-        if ($config->get(['enable', 'security'], false))
+        if ($config->get(['enable', 'security.firewall'], false))
         {
-            $container->singleton('security', function($container)
+            $container->singleton('firewall', function($container)
             {
                 $config = $container->get('config');
                 
-                if ($config->get(['security', 'type']) === 'rbac')
+                if ($config->get(['security', 'firewall', 'type']) === 'rbac')
                 {
                     $firewall = new RBACFirewall($container->get('identities'));
                 }

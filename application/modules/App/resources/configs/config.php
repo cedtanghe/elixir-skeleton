@@ -6,6 +6,7 @@ return [
             'session' => true,
             'db' => false,
             'security' => false,
+            'security.firewall' => false,
             'i18n' => false
         ],
         'i18n' => [
@@ -23,7 +24,10 @@ return [
             'dbname' => '***'
         ],
         'security' => [
-            'type' => 'rbac'
+            'firewall' => 
+            [
+                'type' => 'rbac'
+            ]
         ]
     ],
     'preproduction:development' => [],

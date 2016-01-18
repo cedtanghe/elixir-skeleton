@@ -24,8 +24,11 @@ class Listeners extends ParentListeners
                 $resource = Utils::createResource($e->getRequest());
                 $e->getRequest()->getAttributes()->set('CURRENT_PAGE', $resource);
                 
-                $firewall = $this->_container->get('security');
-                $firewall->analyze($resource);
+                if ($this->_container->has('firewall'))
+                {
+                    $firewall = $this->_container->get('firewall');
+                    $firewall->analyze($resource);
+                }
             }, 850);
         }
     }
