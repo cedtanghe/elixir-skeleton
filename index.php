@@ -4,7 +4,8 @@ require_once __DIR__ . '/application/app.php';
 
 use Elixir\HTTP\RequestFactory;
 
-$request = RequestFactory::create();
+// Create request
+$request = $container->get('request', null, RequestFactory::create());
 
 // Launch application
 $response = $application->handle($request);
